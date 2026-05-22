@@ -3,7 +3,7 @@ name: gemini
 description: Call the Gemini API (gemini-2.5-flash, gemini-2.5-pro, gemini-3-flash-preview, gemini-3-pro-preview, gemini-3.1-pro-preview) through RunAPI using the official OpenAI SDK or the native Google Generative AI SDK. Use when the user asks for Gemini chat, streaming completions, multimodal vision input, Google Search grounding, structured output, reasoning effort, or to point an existing OpenAI-compatible or Gemini-native client at RunAPI as the base URL.
 documentation: https://runapi.ai/models/gemini.md
 provider_page: https://runapi.ai/providers/google.md
-catalog: https://runapi.ai/models
+catalog: https://runapi.ai/models.md
 metadata:
   openclaw:
     homepage: https://runapi.ai/models/gemini
@@ -242,6 +242,5 @@ gemini
 ## Routing
 
 - Model page: <https://runapi.ai/models/gemini.md>
-- Gemini API docs: <https://runapi.ai/docs#gemini>
 - Provider page: <https://runapi.ai/providers/google.md>
 - Catalog: <https://runapi.ai/models.md>
