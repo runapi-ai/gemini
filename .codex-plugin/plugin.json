@@ -1,0 +1,10 @@
+{
+  "name": "gemini",
+  "version": "0.2.2",
+  "description": "RunAPI Gemini API skill for Claude Code, Codex, Gemini CLI, Cursor, and 50+ agents",
+  "skills": [
+    {
+      "path": "skills/gemini/SKILL.md"
+    }
+  ]
+}
