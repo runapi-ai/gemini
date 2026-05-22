@@ -1,6 +1,23 @@
-# Gemini API Skill for RunAPI
+<p align="center">
+  <a href="https://github.com/runapi-ai/gemini">
+    <h3 align="center">Gemini API Skill for RunAPI</h3>
+  </a>
+</p>
+
+<p align="center">
+  Configure Gemini or OpenAI-compatible clients to use Gemini models on RunAPI.
+</p>
+
+<p align="center">
+  <a href="https://runapi.ai/models/gemini.md"><strong>Model Reference</strong></a> · <a href="https://skills.sh/runapi-ai/gemini"><strong>Install Skill</strong></a> · <a href="https://github.com/runapi-ai/gemini"><strong>Skill Repo</strong></a> · <a href="https://runapi.ai/models.md"><strong>All Models</strong></a>
+</p>
+
+<div align="center">
 
 [![skills.sh](https://skills.sh/b/runapi-ai/gemini)](https://skills.sh/runapi-ai/gemini)
+
+</div>
+<br/>
 
 Call the Gemini API through RunAPI with either the OpenAI SDK or the native
 Gemini protocol — point any OpenAI-compatible client at
