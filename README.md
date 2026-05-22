@@ -9,12 +9,16 @@
 </p>
 
 <p align="center">
-  <a href="https://runapi.ai/models/gemini.md"><strong>Model Reference</strong></a> · <a href="https://skills.sh/runapi-ai/gemini"><strong>Install Skill</strong></a> · <a href="https://github.com/runapi-ai/gemini"><strong>Skill Repo</strong></a> · <a href="https://runapi.ai/models.md"><strong>All Models</strong></a>
+  <a href="https://runapi.ai/models/gemini"><strong>Model Reference</strong></a> · <a href="https://github.com/runapi-ai/gemini"><strong>Skill Repo</strong></a> · <a href="https://runapi.ai/models"><strong>All Models</strong></a>
 </p>
 
 <div align="center">
 
-[![skills.sh](https://skills.sh/b/runapi-ai/gemini)](https://skills.sh/runapi-ai/gemini)
+[![skills.sh](https://www.skills.sh/b/runapi-ai/gemini)](https://www.skills.sh/runapi-ai/gemini/gemini)
+[![ClawHub](https://img.shields.io/badge/ClawHub-runapi--gemini-111827)](https://clawhub.ai/runapi-ai/runapi-gemini)
+[![Model Reference](https://img.shields.io/badge/Model%20Reference-runapi.ai-0f766e)](https://runapi.ai/models/gemini)
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-skills.sh-2563eb)](https://www.skills.sh/runapi-ai)
+[![License](https://img.shields.io/github/license/runapi-ai/gemini)](https://github.com/runapi-ai/gemini/blob/main/LICENSE)
 
 </div>
 <br/>
