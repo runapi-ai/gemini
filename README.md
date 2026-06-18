@@ -21,11 +21,12 @@
 </div>
 <br/>
 
-Call the Gemini API through RunAPI with either the OpenAI SDK or the native
-Gemini protocol — point any OpenAI-compatible client at
-`https://runapi.ai/v1beta/openai`, send `gemini-2.5-flash`,
+Call the Gemini API through RunAPI with either the OpenAI SDK or Gemini
+`contents` streaming clients — point any OpenAI-compatible client at
+`https://runapi.ai/v1`, send `gemini-2.5-flash`,
 `gemini-2.5-pro`, `gemini-3-flash-preview`, `gemini-3-pro-preview`, or
-`gemini-3.1-pro-preview`, and pay through one RunAPI balance. This skill
+`gemini-3.1-pro-preview`, or call `gemini-3.5-flash` through the
+`streamGenerateContent` path, and pay through one RunAPI balance. This skill
 teaches Claude Code, Codex, Gemini CLI, Cursor, and 50+ agents how to wire a
 Gemini API client up against RunAPI.
 
@@ -52,20 +53,20 @@ Install the gemini skill for me:
 
 ## Use the Gemini API on RunAPI
 
-The Gemini API on RunAPI exposes two protocols:
+The Gemini API on RunAPI exposes two request styles:
 
-1. **OpenAI-compatible** — `POST /v1beta/openai/chat/completions`. Drop-in for
+1. **OpenAI-compatible** — `POST /v1/chat/completions`. Drop-in for
    any existing OpenAI SDK client.
-2. **Native Gemini** — `POST /v1beta/models/<model>:streamGenerateContent`
-   (currently `gemini-3-flash-preview`). Drop-in for the official Google
-   Generative AI SDK.
+2. **Contents streaming** — `POST /v1beta/models/<model>:streamGenerateContent`
+   for `gemini-3-flash-preview` and `gemini-3.5-flash`. Drop-in for clients
+   that send Gemini `contents` requests.
 
 ```python
 from openai import OpenAI
 
 client = OpenAI(
     api_key="YOUR_RUNAPI_TOKEN",
-    base_url="https://runapi.ai/v1beta/openai",
+    base_url="https://runapi.ai/v1",
 )
 
 response = client.chat.completions.create(
@@ -80,7 +81,7 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
   apiKey: "YOUR_RUNAPI_TOKEN",
-  baseURL: "https://runapi.ai/v1beta/openai",
+  baseURL: "https://runapi.ai/v1",
 });
 
 const response = await client.chat.completions.create({
@@ -91,7 +92,7 @@ console.log(response.choices[0].message.content);
 ```
 
 ```bash
-curl -X POST "https://runapi.ai/v1beta/openai/chat/completions" \
+curl -X POST "https://runapi.ai/v1/chat/completions" \
   -H "x-api-key: YOUR_RUNAPI_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -114,11 +115,12 @@ gemini
 
 | Model ID | Endpoint |
 |---|---|
-| `gemini-2.5-flash` | `/v1beta/openai/chat/completions` |
-| `gemini-2.5-pro` | `/v1beta/openai/chat/completions` |
-| `gemini-3.1-pro-preview` | `/v1beta/openai/chat/completions` |
-| `gemini-3-pro-preview` | `/v1beta/openai/chat/completions` |
-| `gemini-3-flash-preview` | OpenAI **or** native `:streamGenerateContent` |
+| `gemini-2.5-flash` | `/v1/chat/completions` |
+| `gemini-2.5-pro` | `/v1/chat/completions` |
+| `gemini-3.1-pro-preview` | `/v1/chat/completions` |
+| `gemini-3-pro-preview` | `/v1/chat/completions` |
+| `gemini-3-flash-preview` | OpenAI **or** `:streamGenerateContent` |
+| `gemini-3.5-flash` | `:streamGenerateContent` |
 
 `gemini-flash-latest` is an alias for `gemini-3-flash-preview`.
 

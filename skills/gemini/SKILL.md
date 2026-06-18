@@ -1,6 +1,6 @@
 ---
 name: gemini
-description: Call the Gemini API (gemini-2.5-flash, gemini-2.5-pro, gemini-3-flash-preview, gemini-3-pro-preview, gemini-3.1-pro-preview) through RunAPI using the official OpenAI SDK or the native Google Generative AI SDK. Use when the user asks for Gemini chat, streaming completions, multimodal vision input, Google Search grounding, structured output, reasoning effort, or to point an existing OpenAI-compatible or Gemini-native client at RunAPI as the base URL.
+description: Call the Gemini API (gemini-2.5-flash, gemini-2.5-pro, gemini-3-flash-preview, gemini-3-pro-preview, gemini-3.1-pro-preview, gemini-3.5-flash) through RunAPI using the official OpenAI SDK or Gemini contents streaming clients. Use when the user asks for Gemini chat, streaming completions, multimodal vision input, Google Search grounding, structured output, reasoning effort, or to point an existing Gemini client at RunAPI as the base URL.
 documentation: https://runapi.ai/models/gemini.md
 provider_page: https://runapi.ai/providers/google.md
 catalog: https://runapi.ai/models.md
@@ -17,20 +17,20 @@ metadata:
       description: RunAPI API key used for Gemini requests.
     - name: GOOGLE_API_KEY
       required: false
-      description: Optional alias when using native Gemini SDK examples.
+      description: Optional alias when using Gemini contents streaming examples.
     - name: GOOGLE_GENAI_BASE_URL
       required: false
-      description: Optional native Gemini SDK base URL override for RunAPI.
+      description: Optional Gemini client base URL override for RunAPI.
 ---
 
 # Gemini on RunAPI
 
-Gemini on RunAPI exposes **two protocols**:
+Gemini on RunAPI exposes **two request styles**:
 
-| Protocol | Endpoint | Use when |
+| Request style | Endpoint | Use when |
 |---|---|---|
-| OpenAI-compatible | `POST /v1beta/openai/chat/completions` | You already use the OpenAI SDK or any OpenAI client |
-| Native Gemini | `POST /v1beta/models/<model>:streamGenerateContent` | You use Google's `@google/generative-ai` SDK (currently `gemini-3-flash-preview` only) |
+| OpenAI-compatible | `POST /v1/chat/completions` | You already use the OpenAI SDK or any OpenAI client |
+| Contents streaming | `POST /v1beta/models/<model>:streamGenerateContent` | You use a Gemini SDK/client with `contents` requests; supported models are `gemini-3-flash-preview` and `gemini-3.5-flash` |
 
 Both accept the same RunAPI API Key.
 
@@ -49,7 +49,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="YOUR_RUNAPI_TOKEN",
-    base_url="https://runapi.ai/v1beta/openai",
+    base_url="https://runapi.ai/v1",
 )
 ```
 
@@ -58,11 +58,11 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
   apiKey: "YOUR_RUNAPI_TOKEN",
-  baseURL: "https://runapi.ai/v1beta/openai",
+  baseURL: "https://runapi.ai/v1",
 });
 ```
 
-### Native Gemini setup
+### Gemini contents setup
 
 ```bash
 export GOOGLE_API_KEY=YOUR_RUNAPI_TOKEN
@@ -89,7 +89,7 @@ const response = await client.chat.completions.create({
 ```
 
 ```bash
-curl -X POST "https://runapi.ai/v1beta/openai/chat/completions" \
+curl -X POST "https://runapi.ai/v1/chat/completions" \
   -H "x-api-key: YOUR_RUNAPI_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -98,7 +98,7 @@ curl -X POST "https://runapi.ai/v1beta/openai/chat/completions" \
   }'
 ```
 
-## Core recipe — native Gemini
+## Core recipe — Gemini contents streaming
 
 ```bash
 curl -X POST \
@@ -112,9 +112,9 @@ curl -X POST \
   }'
 ```
 
-The native protocol returns SSE chunks in Google's `streamGenerateContent`
-format — use the official `@google/generative-ai` SDK or Google's
-`google-genai` Python package to consume it.
+The `contents` streaming endpoint returns SSE chunks in Google's
+`streamGenerateContent` format — use the official `@google/generative-ai` SDK
+or Google's `google-genai` Python package to consume it.
 
 ## Streaming (OpenAI-compatible)
 
@@ -151,7 +151,8 @@ Rails/Puma thread. Long generations should always stream.
 ```
 
 Standard OpenAI multimodal block for the OpenAI-compatible endpoint. For the
-native endpoint, embed image data as `parts[].inlineData` or `parts[].fileData`.
+`contents` streaming endpoint, embed image data as `parts[].inlineData` or
+`parts[].fileData`.
 
 ## Google Search grounding
 
@@ -204,19 +205,20 @@ curl https://runapi.ai/v1beta/models -H "x-api-key: YOUR_RUNAPI_TOKEN"
 Or via the OpenAI-style path:
 
 ```bash
-curl https://runapi.ai/v1beta/openai/models \
+curl https://runapi.ai/v1/models \
   -H "Authorization: Bearer YOUR_RUNAPI_TOKEN"
 ```
 
 ## Supported models
 
-| Model ID | OpenAI endpoint | Native endpoint | Capabilities |
+| Model ID | OpenAI endpoint | Contents streaming endpoint | Capabilities |
 |---|---|---|---|
 | `gemini-2.5-flash` | yes | — | Chat, multimodal, Google Search, structured output, thoughts |
 | `gemini-2.5-pro` | yes | — | + reasoning effort |
 | `gemini-3.1-pro-preview` | yes | — | + reasoning effort |
 | `gemini-3-pro-preview` | yes | — | + reasoning effort |
 | `gemini-3-flash-preview` | yes | `:streamGenerateContent` | Chat, multimodal, function calling, structured output, reasoning effort |
+| `gemini-3.5-flash` | — | `:streamGenerateContent` | Streaming `contents` requests, multimodal, function calling, thoughts |
 
 `gemini-flash-latest` resolves to `gemini-3-flash-preview`.
 
@@ -230,9 +232,9 @@ gemini
 
 ## Agent rules
 
-- The native `:streamGenerateContent` path is currently only wired for
-  `gemini-3-flash-preview` — use the OpenAI-compatible endpoint for every
-  other Gemini model.
+- The `:streamGenerateContent` path is wired for `gemini-3-flash-preview` and
+  `gemini-3.5-flash` — use the OpenAI-compatible endpoint for the other Gemini
+  models.
 - Use streaming for any response longer than a few hundred tokens. Do not
   hold the agent on a long blocking request.
 - Google Search grounding uses a `googleSearch` function tool.
