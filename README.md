@@ -22,13 +22,13 @@
 <br/>
 
 Call the Gemini API through RunAPI with either the OpenAI SDK or Gemini
-`contents` streaming clients — point any OpenAI-compatible client at
+`contents` clients -- point any OpenAI-compatible client at
 `https://runapi.ai/v1`, send `gemini-2.5-flash`,
 `gemini-2.5-pro`, `gemini-3-flash-preview`, `gemini-3-pro-preview`, or
-`gemini-3.1-pro-preview`, or call `gemini-3.5-flash` through the
-`streamGenerateContent` path, and pay through one RunAPI balance. This skill
-teaches Claude Code, Codex, Gemini CLI, Cursor, and 50+ agents how to wire a
-Gemini API client up against RunAPI.
+`gemini-3.1-pro-preview`, or call Gemini `contents` paths when an existing
+client expects `generateContent` / `streamGenerateContent`, and pay through one
+RunAPI balance. This skill teaches Claude Code, Codex, Gemini CLI, Cursor, and
+50+ agents how to wire a Gemini API client up against RunAPI.
 
 The canonical agent file is `skills/gemini/SKILL.md`.
 
@@ -57,9 +57,9 @@ The Gemini API on RunAPI exposes two request styles:
 
 1. **OpenAI-compatible** — `POST /v1/chat/completions`. Drop-in for
    any existing OpenAI SDK client.
-2. **Contents streaming** — `POST /v1beta/models/<model>:streamGenerateContent`
-   for `gemini-3-flash-preview` and `gemini-3.5-flash`. Drop-in for clients
-   that send Gemini `contents` requests.
+2. **Gemini contents** — `POST /v1beta/models/<model>:generateContent` or
+   `:streamGenerateContent`. Drop-in for clients that send Gemini `contents`
+   requests.
 
 ```python
 from openai import OpenAI
@@ -103,6 +103,11 @@ curl -X POST "https://runapi.ai/v1/chat/completions" \
 
 Get a RunAPI API Key at <https://runapi.ai/api_keys>.
 
+For `gemini-3-flash-preview` and `gemini-3.5-flash`, RunAPI uses the native
+Gemini `streamGenerateContent` route. For other callable Gemini models, RunAPI
+accepts Gemini `contents` requests and bridges them to the OpenAI-compatible
+chat request format. For new app code, prefer the OpenAI-compatible setup.
+
 ## Connect Gemini CLI itself
 
 ```bash
@@ -115,12 +120,12 @@ gemini
 
 | Model ID | Endpoint |
 |---|---|
-| `gemini-2.5-flash` | `/v1/chat/completions` |
-| `gemini-2.5-pro` | `/v1/chat/completions` |
-| `gemini-3.1-pro-preview` | `/v1/chat/completions` |
-| `gemini-3-pro-preview` | `/v1/chat/completions` |
-| `gemini-3-flash-preview` | OpenAI **or** `:streamGenerateContent` |
-| `gemini-3.5-flash` | `:streamGenerateContent` |
+| `gemini-2.5-flash` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
+| `gemini-2.5-pro` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
+| `gemini-3.1-pro-preview` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
+| `gemini-3-pro-preview` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
+| `gemini-3-flash-preview` | `/v1/chat/completions`; native `:streamGenerateContent` |
+| `gemini-3.5-flash` | native `:streamGenerateContent` |
 
 `gemini-flash-latest` is an alias for `gemini-3-flash-preview`.
 
@@ -136,6 +141,8 @@ gemini
 
 - Keep API keys in `GOOGLE_API_KEY` / `OPENAI_API_KEY` (or your secret
   manager); never inline them in commits or shell history.
+- Use the OpenAI-compatible endpoint for new app code. Use Gemini `contents`
+  paths when an existing client already sends `contents` requests.
 - Stream long responses (`stream: true`) so the agent can release the
   terminal/IO loop early.
 - For pricing, rate-limit, and commercial-usage answers, link to
