@@ -214,14 +214,14 @@ curl https://runapi.ai/v1/models \
 
 ## Supported models
 
-| Model ID | OpenAI endpoint | Gemini contents endpoint | Capabilities |
-|---|---|---|---|
-| `gemini-3.5-flash` | yes | native `:streamGenerateContent` | Streaming `contents` requests, multimodal, function calling, thoughts |
-| `gemini-3.1-pro-preview` | yes | bridged `generateContent` / `streamGenerateContent` | + reasoning effort |
-| `gemini-3-pro-preview` | yes | bridged `generateContent` / `streamGenerateContent` | + reasoning effort |
-| `gemini-3-flash-preview` | yes | native `:streamGenerateContent` | Chat, multimodal, function calling, structured output, reasoning effort |
-| `gemini-2.5-pro` | yes | bridged `generateContent` / `streamGenerateContent` | + reasoning effort |
-| `gemini-2.5-flash` | yes | bridged `generateContent` / `streamGenerateContent` | Chat, multimodal, Google Search, structured output, thoughts |
+| Model ID | Capabilities |
+|---|---|
+| `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
+| `gemini-3.1-pro-preview` | + reasoning effort |
+| `gemini-3-pro-preview` | + reasoning effort |
+| `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
+| `gemini-2.5-pro` | + reasoning effort |
+| `gemini-2.5-flash` | Chat, multimodal, Google Search, structured output, thoughts |
 
 `gemini-flash-latest` resolves to `gemini-3-flash-preview`.
 

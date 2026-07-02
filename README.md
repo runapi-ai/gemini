@@ -118,14 +118,14 @@ gemini
 
 ## Supported Gemini models
 
-| Model ID | Endpoint |
+| Model ID | Capabilities |
 |---|---|
-| `gemini-3.5-flash` | `/v1/chat/completions`; native `:streamGenerateContent` |
-| `gemini-3.1-pro-preview` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
-| `gemini-3-pro-preview` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
-| `gemini-3-flash-preview` | `/v1/chat/completions`; native `:streamGenerateContent` |
-| `gemini-2.5-pro` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
-| `gemini-2.5-flash` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
+| `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
+| `gemini-3.1-pro-preview` | + reasoning effort |
+| `gemini-3-pro-preview` | + reasoning effort |
+| `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
+| `gemini-2.5-pro` | + reasoning effort |
+| `gemini-2.5-flash` | Chat, multimodal, Google Search, structured output, thoughts |
 
 `gemini-flash-latest` is an alias for `gemini-3-flash-preview`.
 
