@@ -146,7 +146,7 @@ Rails/Puma thread. Long generations should always stream.
       "role": "user",
       "content": [
         { "type": "text", "text": "What is in this image?" },
-        { "type": "image_url", "image_url": { "url": "https://example.com/img.jpg" } }
+        { "type": "image_url", "image_url": { "url": "https://runapi.ai/img.jpg" } }
       ]
     }
   ]
@@ -216,12 +216,12 @@ curl https://runapi.ai/v1/models \
 
 | Model ID | OpenAI endpoint | Gemini contents endpoint | Capabilities |
 |---|---|---|---|
-| `gemini-2.5-flash` | yes | bridged `generateContent` / `streamGenerateContent` | Chat, multimodal, Google Search, structured output, thoughts |
-| `gemini-2.5-pro` | yes | bridged `generateContent` / `streamGenerateContent` | + reasoning effort |
+| `gemini-3.5-flash` | yes | native `:streamGenerateContent` | Streaming `contents` requests, multimodal, function calling, thoughts |
 | `gemini-3.1-pro-preview` | yes | bridged `generateContent` / `streamGenerateContent` | + reasoning effort |
 | `gemini-3-pro-preview` | yes | bridged `generateContent` / `streamGenerateContent` | + reasoning effort |
 | `gemini-3-flash-preview` | yes | native `:streamGenerateContent` | Chat, multimodal, function calling, structured output, reasoning effort |
-| `gemini-3.5-flash` | — | native `:streamGenerateContent` | Streaming `contents` requests, multimodal, function calling, thoughts |
+| `gemini-2.5-pro` | yes | bridged `generateContent` / `streamGenerateContent` | + reasoning effort |
+| `gemini-2.5-flash` | yes | bridged `generateContent` / `streamGenerateContent` | Chat, multimodal, Google Search, structured output, thoughts |
 
 `gemini-flash-latest` resolves to `gemini-3-flash-preview`.
 

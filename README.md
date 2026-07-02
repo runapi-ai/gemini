@@ -120,12 +120,12 @@ gemini
 
 | Model ID | Endpoint |
 |---|---|
-| `gemini-2.5-flash` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
-| `gemini-2.5-pro` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
+| `gemini-3.5-flash` | `/v1/chat/completions`; native `:streamGenerateContent` |
 | `gemini-3.1-pro-preview` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
 | `gemini-3-pro-preview` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
 | `gemini-3-flash-preview` | `/v1/chat/completions`; native `:streamGenerateContent` |
-| `gemini-3.5-flash` | native `:streamGenerateContent` |
+| `gemini-2.5-pro` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
+| `gemini-2.5-flash` | `/v1/chat/completions`; bridged `generateContent` / `streamGenerateContent` |
 
 `gemini-flash-latest` is an alias for `gemini-3-flash-preview`.
 
