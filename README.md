@@ -23,9 +23,8 @@
 
 Call the Gemini API through RunAPI with either the OpenAI SDK or Gemini
 `contents` clients -- point any OpenAI-compatible client at
-`https://runapi.ai/v1`, send `gemini-2.5-flash`,
-`gemini-2.5-pro`, `gemini-3-flash-preview`, `gemini-3-pro-preview`, or
-`gemini-3.1-pro-preview`, or call Gemini `contents` paths when an existing
+`https://runapi.ai/v1`, send any Gemini 2.5 or 3 model (see Supported models
+below), or call Gemini `contents` paths when an existing
 client expects `generateContent` / `streamGenerateContent`, and pay through one
 RunAPI balance. This skill teaches Claude Code, Codex, Gemini CLI, Cursor, and
 50+ agents how to wire a Gemini API client up against RunAPI.
@@ -121,10 +120,10 @@ gemini
 | Model ID | Capabilities |
 |---|---|
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
-| `gemini-3.1-pro-preview` | + reasoning effort |
-| `gemini-3-pro-preview` | + reasoning effort |
+| `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
+| `gemini-3-pro-preview` | Chat, multimodal, structured output, reasoning effort |
 | `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
-| `gemini-2.5-pro` | + reasoning effort |
+| `gemini-2.5-pro` | Chat, multimodal, Google Search, structured output, reasoning effort |
 | `gemini-2.5-flash` | Chat, multimodal, Google Search, structured output, thoughts |
 
 `gemini-flash-latest` is an alias for `gemini-3-flash-preview`.

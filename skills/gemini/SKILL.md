@@ -1,6 +1,6 @@
 ---
 name: gemini
-description: Call the Gemini API (gemini-2.5-flash, gemini-2.5-pro, gemini-3-flash-preview, gemini-3-pro-preview, gemini-3.1-pro-preview, gemini-3.5-flash) through RunAPI using the official OpenAI SDK or Gemini contents clients. Use when the user asks for Gemini chat, streaming completions, multimodal vision input, Google Search grounding, structured output, reasoning effort, or to point an existing OpenAI or Gemini client at RunAPI as the base URL.
+description: Call the Gemini API (the Gemini 2.5 and 3 series) through RunAPI using the official OpenAI SDK or Gemini contents clients. Use when the user asks for Gemini chat, streaming completions, multimodal vision input, Google Search grounding, structured output, reasoning effort, or to point an existing OpenAI or Gemini client at RunAPI as the base URL.
 documentation: https://runapi.ai/models/gemini.md
 provider_page: https://runapi.ai/providers/google.md
 catalog: https://runapi.ai/models.md
@@ -217,10 +217,10 @@ curl https://runapi.ai/v1/models \
 | Model ID | Capabilities |
 |---|---|
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
-| `gemini-3.1-pro-preview` | + reasoning effort |
-| `gemini-3-pro-preview` | + reasoning effort |
+| `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
+| `gemini-3-pro-preview` | Chat, multimodal, structured output, reasoning effort |
 | `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
-| `gemini-2.5-pro` | + reasoning effort |
+| `gemini-2.5-pro` | Chat, multimodal, Google Search, structured output, reasoning effort |
 | `gemini-2.5-flash` | Chat, multimodal, Google Search, structured output, thoughts |
 
 `gemini-flash-latest` resolves to `gemini-3-flash-preview`.
