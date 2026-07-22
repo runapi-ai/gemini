@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.2.11](https://github.com/runapi-ai/gemini/releases/tag/v0.2.11) - 2026-07-22
+
+### Removed
+- Remove `gemini-3-pro-preview` from the supported Gemini model list.
+  Migration: Choose another currently supported model ID; no replacement alias is provided.
+
+
 ## [v0.2.10](https://github.com/runapi-ai/gemini/releases/tag/v0.2.10) - 2026-07-08
 
 ### Changed

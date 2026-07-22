@@ -171,8 +171,7 @@ Standard OpenAI multimodal block for the OpenAI-compatible endpoint. For the
 }
 ```
 
-Available on `gemini-2.5-flash`, `gemini-2.5-pro`, `gemini-3.1-pro-preview`,
-and `gemini-3-pro-preview`.
+Available on `gemini-2.5-flash`, `gemini-2.5-pro`, and `gemini-3.1-pro-preview`.
 
 ## Structured output
 
@@ -196,8 +195,8 @@ and `gemini-3-pro-preview`.
 
 ## Reasoning effort
 
-Supported on `gemini-2.5-pro`, `gemini-3.1-pro-preview`, `gemini-3-pro-preview`,
-and `gemini-3-flash-preview` — pass `reasoning_effort: "low" | "medium" | "high"`.
+Supported on `gemini-2.5-pro`, `gemini-3.1-pro-preview`, and
+`gemini-3-flash-preview` — pass `reasoning_effort: "low" | "medium" | "high"`.
 
 ## List models
 
@@ -218,7 +217,6 @@ curl https://runapi.ai/v1/models \
 |---|---|
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
 | `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
-| `gemini-3-pro-preview` | Chat, multimodal, structured output, reasoning effort |
 | `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
 | `gemini-2.5-pro` | Chat, multimodal, Google Search, structured output, reasoning effort |
 | `gemini-2.5-flash` | Chat, multimodal, Google Search, structured output, thoughts |

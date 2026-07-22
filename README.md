@@ -121,7 +121,6 @@ gemini
 |---|---|
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
 | `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
-| `gemini-3-pro-preview` | Chat, multimodal, structured output, reasoning effort |
 | `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
 | `gemini-2.5-pro` | Chat, multimodal, Google Search, structured output, reasoning effort |
 | `gemini-2.5-flash` | Chat, multimodal, Google Search, structured output, thoughts |
