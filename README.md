@@ -130,7 +130,7 @@ gemini
 ## Routing
 
 - Gemini API on RunAPI: <https://runapi.ai/models/gemini>
-- Gemini API docs: <https://runapi.ai/docs#gemini>
+- Gemini API docs: <https://runapi.ai/docs/api/gemini/generate-content>
 - Provider page: <https://runapi.ai/providers/google>
 - Browse the full RunAPI catalog: <https://runapi.ai/models>
 - Skill repository: <https://github.com/runapi-ai/gemini>
