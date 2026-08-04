@@ -102,10 +102,11 @@ curl -X POST "https://runapi.ai/v1/chat/completions" \
 
 Get a RunAPI API Key at <https://runapi.ai/api_keys>.
 
-For `gemini-3-flash-preview` and `gemini-3.5-flash`, RunAPI uses the native
-Gemini `streamGenerateContent` route. For other callable Gemini models, RunAPI
-accepts Gemini `contents` requests and bridges them to the OpenAI-compatible
-chat request format. For new app code, prefer the OpenAI-compatible setup.
+For `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3-flash-preview`, RunAPI
+uses the native Gemini `streamGenerateContent` route. For other callable Gemini
+models, RunAPI accepts Gemini `contents` requests and bridges them to the
+OpenAI-compatible chat request format. For new app code, prefer the
+OpenAI-compatible setup.
 
 ## Connect Gemini CLI itself
 
@@ -119,6 +120,7 @@ gemini
 
 | Model ID | Capabilities |
 |---|---|
+| `gemini-3.6-flash` | Streaming `contents` and OpenAI-compatible chat, multimodal, function calling |
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
 | `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
 | `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |

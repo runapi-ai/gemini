@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.12](https://github.com/runapi-ai/gemini/releases/tag/v0.2.12) - 2026-08-04
+
+### Added
+- Document gemini-3.6-flash for OpenAI-compatible Chat and Gemini native content streaming.
+
+
 ## [v0.2.11](https://github.com/runapi-ai/gemini/releases/tag/v0.2.11) - 2026-07-22
 
 ### Removed
