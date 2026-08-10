@@ -1,6 +1,6 @@
 {
   "name": "gemini",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "RunAPI Gemini API skill for Claude Code, Codex, Gemini CLI, Cursor, and 50+ agents",
   "skills": [
     {
