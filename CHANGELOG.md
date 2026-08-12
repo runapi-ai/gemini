@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.14](https://github.com/runapi-ai/gemini/releases/tag/v0.2.14) - 2026-08-12
+
+### Changed
+- Document Gemini authentication, request, result verification, and stop boundaries in the primary recipe, with compatibility protocols loaded only when required.
+
+
 ## [v0.2.13](https://github.com/runapi-ai/gemini/releases/tag/v0.2.13) - 2026-08-10
 
 ### Changed
