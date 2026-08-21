@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.15](https://github.com/runapi-ai/gemini/releases/tag/v0.2.15) - 2026-08-21
+
+### Added
+- Document Gemini 3.7 Flash native streaming and OpenAI-compatible streaming with terminal usage verification.
+
+
 ## [v0.2.14](https://github.com/runapi-ai/gemini/releases/tag/v0.2.14) - 2026-08-12
 
 ### Changed

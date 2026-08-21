@@ -102,7 +102,7 @@ curl -X POST "https://runapi.ai/v1/chat/completions" \
 
 Get a RunAPI API Key at <https://runapi.ai/api_keys>.
 
-For `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3-flash-preview`, RunAPI
+For `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3-flash-preview`, RunAPI
 uses the native Gemini `streamGenerateContent` route. For other callable Gemini
 models, RunAPI accepts Gemini `contents` requests and bridges them to the
 OpenAI-compatible chat request format. For new app code, prefer the
@@ -120,6 +120,7 @@ gemini
 
 | Model ID | Capabilities |
 |---|---|
+| `gemini-3.7-flash` | Streaming `contents` and OpenAI-compatible chat; native `functionDeclarations`, the empty-object `googleSearch` tool, and `thinkingConfig` are protocol-specific |
 | `gemini-3.6-flash` | Streaming `contents` and OpenAI-compatible chat, multimodal, function calling |
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
 | `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
@@ -145,6 +146,11 @@ gemini
   paths when an existing client already sends `contents` requests.
 - Stream long responses (`stream: true`) so the agent can release the
   terminal/IO loop early.
+- For `gemini-3.7-flash`, use native search grounding only with the
+  `googleSearch` tool and an empty object payload. OpenAI-compatible requests
+  accept function tools plus `include_thoughts` and `reasoning_effort` (`low`
+  or `high`), but reject hosted search tools and tool-control fields before a
+  task is created.
 - For pricing, rate-limit, and commercial-usage answers, link to
   <https://runapi.ai/models/gemini> rather than this README.
 

@@ -31,16 +31,18 @@ Set `GEMINI_API_KEY` to a RunAPI API key and the Gemini client base URL to
 
 ```bash
 curl -X POST \
-  "https://runapi.ai/v1beta/models/gemini-3.6-flash:streamGenerateContent" \
+  "https://runapi.ai/v1beta/models/gemini-3.7-flash:streamGenerateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"contents":[{"role":"user","parts":[{"text":"Summarize this review."}]}]}'
 ```
 
-Use `generateContent` for a synchronous response and `streamGenerateContent`
-for long output. Add inline media, function declarations, grounding, structured
-output, or reasoning only when the current RunAPI contract verifies the exact
-model and request shape.
+Use `generateContent` only when the selected model supports synchronous output;
+`gemini-3.7-flash` accepts only `streamGenerateContent`. For this model, native
+tools are limited to `functionDeclarations` and the `googleSearch` tool with an
+empty object payload;
+native thinking is limited to `generationConfig.thinkingConfig.includeThoughts`
+and `thinkingLevel` of `low` or `high`.
 
 ### Verify result
 
@@ -62,6 +64,7 @@ Load [compatibility protocols](references/compatibility-protocols.md) only when 
 
 | Model ID | Use when |
 |---|---|
+| `gemini-3.7-flash` | Fast streaming chat; use native tools/search grounding only with Gemini contents |
 | `gemini-3.6-flash` | Fast current-generation multimodal requests |
 | `gemini-3.5-flash` | Fast multimodal and function-calling requests |
 | `gemini-3.1-pro-preview` | Complex multimodal and reasoning requests |
