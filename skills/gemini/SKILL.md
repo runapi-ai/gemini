@@ -64,9 +64,11 @@ Load [compatibility protocols](references/compatibility-protocols.md) only when 
 
 | Model ID | Use when |
 |---|---|
+| `gemini-3.8-flash` | Fast text-only chat and function calling; image, audio, and file input are rejected |
 | `gemini-3.7-flash` | Fast streaming chat; use native tools/search grounding only with Gemini contents |
 | `gemini-3.6-flash` | Fast current-generation multimodal requests |
 | `gemini-3.5-flash` | Fast multimodal and function-calling requests |
+| `gemini-3.5-flash-lite` | Lightweight text generation with native Gemini streaming |
 | `gemini-3.1-pro-preview` | Complex multimodal and reasoning requests |
 | `gemini-3-flash-preview` | Preview flash workloads |
 | `gemini-2.5-pro` | Stable high-quality multimodal requests |

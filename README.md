@@ -120,9 +120,11 @@ gemini
 
 | Model ID | Capabilities |
 |---|---|
+| `gemini-3.8-flash` | Text-only `contents` and OpenAI-compatible chat with function calling; image, audio, and file input are rejected |
 | `gemini-3.7-flash` | Streaming `contents` and OpenAI-compatible chat; native `functionDeclarations`, the empty-object `googleSearch` tool, and `thinkingConfig` are protocol-specific |
 | `gemini-3.6-flash` | Streaming `contents` and OpenAI-compatible chat, multimodal, function calling |
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
+| `gemini-3.5-flash-lite` | Chat Completions and native Gemini content streaming |
 | `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
 | `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
 | `gemini-2.5-pro` | Chat, multimodal, Google Search, structured output, reasoning effort |

@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.2.16](https://github.com/runapi-ai/gemini/releases/tag/v0.2.16) - 2026-09-30
+
+### Added
+- List gemini-3.5-flash-lite for text requests through Chat Completions and native Gemini content generation.
+- Gemini 3.8 Flash (gemini-3.8-flash) is now listed as an available text-only Gemini model with function calling.
+
+
 ## [v0.2.15](https://github.com/runapi-ai/gemini/releases/tag/v0.2.15) - 2026-08-21
 
 ### Added
