@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.2.17](https://github.com/runapi-ai/gemini/releases/tag/v0.2.17) - 2026-10-15
+
+### Added
+- The supported model table now lists gemini-2.5-flash-lite for text-only requests through Gemini contents and the OpenAI, Responses and Anthropic Messages compatibility protocols; image, audio and file input are rejected.
+- The supported model table now lists gemini-3.1-flash-lite for text-only requests through Gemini contents and the OpenAI, Responses and Anthropic Messages compatibility protocols; image, audio and file input are rejected.
+
+
 ## [v0.2.16](https://github.com/runapi-ai/gemini/releases/tag/v0.2.16) - 2026-09-30
 
 ### Added

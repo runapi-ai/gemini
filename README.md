@@ -126,9 +126,11 @@ gemini
 | `gemini-3.5-flash` | Streaming `contents` requests, multimodal, function calling, thoughts |
 | `gemini-3.5-flash-lite` | Chat Completions and native Gemini content streaming |
 | `gemini-3.1-pro-preview` | Chat, multimodal, structured output, reasoning effort |
+| `gemini-3.1-flash-lite` | Text-only `contents` and OpenAI-compatible chat; image, audio, and file input and hosted tools such as Google Search are rejected |
 | `gemini-3-flash-preview` | Chat, multimodal, function calling, structured output, reasoning effort |
 | `gemini-2.5-pro` | Chat, multimodal, Google Search, structured output, reasoning effort |
 | `gemini-2.5-flash` | Chat, multimodal, Google Search, structured output, thoughts |
+| `gemini-2.5-flash-lite` | Text-only `contents` and OpenAI-compatible chat; image, audio, and file input and hosted tools such as Google Search are rejected |
 
 `gemini-flash-latest` is an alias for `gemini-3-flash-preview`.
 

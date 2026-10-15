@@ -70,9 +70,11 @@ Load [compatibility protocols](references/compatibility-protocols.md) only when 
 | `gemini-3.5-flash` | Fast multimodal and function-calling requests |
 | `gemini-3.5-flash-lite` | Lightweight text generation with native Gemini streaming |
 | `gemini-3.1-pro-preview` | Complex multimodal and reasoning requests |
+| `gemini-3.1-flash-lite` | Lightweight text-only requests; image, audio, and file input are rejected |
 | `gemini-3-flash-preview` | Preview flash workloads |
 | `gemini-2.5-pro` | Stable high-quality multimodal requests |
 | `gemini-2.5-flash` | Stable fast multimodal requests |
+| `gemini-2.5-flash-lite` | Lightweight text-only requests; image, audio, and file input are rejected |
 
 ## References
 
